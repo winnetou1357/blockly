@@ -34,7 +34,7 @@ goog.require('Blockly.Generator');
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
-        "type": "command_block",
+        "type": "gdl_3D_block",
         "message0": "BLOCK %1 szélesség %2 %3 mélység %4 %5 magasság %6 %7",
         "args0": [
             {
@@ -208,7 +208,7 @@ Blockly.GDL['math_arithmetic'] = function(block) {
     return [code, order];
 };
 
-Blockly.GDL['command_block'] = function(block) {
+Blockly.GDL['gdl_3D_block'] = function(block) {
     // BLOCK command
     var value_x = Blockly.GDL.valueToCode(block, 'X', Blockly.GDL.ORDER_COMMA) || '0';
     var value_y = Blockly.GDL.valueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA) || '0';
