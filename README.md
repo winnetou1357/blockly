@@ -1,5 +1,16 @@
-# Blockly [![Build Status]( https://travis-ci.org/google/blockly.svg?branch=master)](https://travis-ci.org/google/blockly)
+# GDL (Geometric Description Language)
 
+GDL is a procedural language capable of describing 3D and 2D representations (and many more properties) of parametric Objects in ARCHICAD, an architectural modeling software created by GRAPHISOFT SE. Its reference documentation can be found at: http://gdl.graphisoft.com/reference-guide
+
+# Blockly.GDL
+
+This project aims to adapt Google's Blockly system to the 3D modeling part of the GDL language, and thus provide a visual programming experience for GDL, for educational purposes.
+
+# Copyright
+
+All extensions of the Google Blockly source code are intellectual property of the author. All code here is free and open source. GRAPHISOFT SE should not claim any rights regarding this code.
+
+# Google's Blockly
 
 Google's Blockly is a web-based, visual programming editor.  Users can drag
 blocks together to build programs.  All code is free and open source.
