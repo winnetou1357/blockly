@@ -96,6 +96,38 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
+    }, {
+        "type": "gdl_3d_cone",
+        "message0": "CONE h = %1 %2 r_bottom = %3 %4 r_top = %5 %6",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "H"
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "R_BOTTOM"
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "R_TOP"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);
 
@@ -248,5 +280,18 @@ Blockly.GDL['gdl_3d_ellipse'] = function (block) {
     var value_radius = Blockly.GDL.valueToCode(block, 'R', Blockly.GDL.ORDER_COMMA) || '0';
 
     var command = 'ELLIPS ' + value_height + ', ' + value_radius + '\n';
+    return command;
+};
+
+Blockly.GDL['gdl_3d_cone'] = function (block) {
+    var value_h         = Blockly.GDL.valueToCode(block, 'H', Blockly.GDL.ORDER_COMMA)          || '0';
+    var value_r_bottom  = Blockly.GDL.valueToCode(block, 'R_BOTTOM', Blockly.GDL.ORDER_COMMA)   || '0';
+    var value_r_top     = Blockly.GDL.valueToCode(block, 'R_TOP', Blockly.GDL.ORDER_COMMA)      || '0';
+
+    var DEFAULT_ANGLE_BOTTOM = 90;
+    var DEFAULT_ANGLE_TOP = 90;
+
+    var command = 'CONE ' + value_h + ', ' + value_r_bottom + ', ' + value_r_top + ', ' +
+        DEFAULT_ANGLE_BOTTOM + ', ' + DEFAULT_ANGLE_TOP + '\n';
     return command;
 };
