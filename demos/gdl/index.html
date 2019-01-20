@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Blockly Demo: Generating GDL</title>
@@ -19,6 +20,7 @@
     }
   </style>
 </head>
+
 <body>
   <p>
     <button onclick="showCode()">Show GDL</button>
@@ -29,19 +31,20 @@
 
   <xml id="toolbox" style="display: none">
     <!-- GDL generators -->
-    <block type="gdl_3D_block"></block>
+    <block type="gdl_3d_block"></block>
+    <block type="gdl_3d_ellipse"></block>
 
     <!-- GDL control structures -->
     <block type="controls_if"></block>
-    
+
     <!-- GDL expressions -->
     <block type="math_arithmetic"></block>
     <block type="math_number"></block>
   </xml>
 
   <xml id="startBlocks" style="display: none">
-    <block type="gdl_3D_block" inline="false">
-      <value name="X">
+    <block type="gdl_3d_ellipse" inline="false">
+      <value name="H">
         <block type="math_arithmetic">
           <value name="A">
             <block type="math_number">
@@ -55,14 +58,9 @@
           </value>
         </block>
       </value>
-      <value name="Y">
+      <value name="R">
         <block type="math_number">
           <field name="NUM">2</field>
-        </block>
-      </value>
-      <value name="Z">
-        <block type="math_number">
-          <field name="NUM">3</field>
         </block>
       </value>
     </block>
@@ -70,7 +68,7 @@
 
   <script>
     var demoWorkspace = Blockly.inject('blocklyDiv',
-        {toolbox: document.getElementById('toolbox')});
+      { toolbox: document.getElementById('toolbox') });
     Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), demoWorkspace);
 
     function showCode() {
@@ -84,7 +82,7 @@
       // Generate JavaScript code and run it.
       window.LoopTrap = 1000;
       Blockly.GDL.INFINITE_LOOP_TRAP =
-          'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
       var code = Blockly.GDL.workspaceToCode(demoWorkspace);
       Blockly.GDL.INFINITE_LOOP_TRAP = null;
       try {
@@ -96,4 +94,5 @@
   </script>
 
 </body>
+
 </html>

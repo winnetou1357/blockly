@@ -34,7 +34,7 @@ goog.require('Blockly.Generator');
 
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
-        "type": "gdl_3D_block",
+        "type": "gdl_3d_block",
         "message0": "BLOCK %1 szélesség %2 %3 mélység %4 %5 magasság %6 %7",
         "args0": [
             {
@@ -63,6 +63,31 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
                 "type": "input_value",
                 "name": "Z",
                 "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_3d_ellipse",
+        "message0": "ELLIPSE h = %1 %2 r = %3 %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "H"
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "R"
             }
         ],
         "inputsInline": true,
@@ -120,7 +145,7 @@ Blockly.GDL.ORDER_OVERRIDES = [
  * Initialise the database of variable names.
  * @param {!Blockly.Workspace} workspace Workspace to generate code from.
  */
-Blockly.GDL.init = function(workspace) {
+Blockly.GDL.init = function (workspace) {
     // TODO ?
 };
 
@@ -129,7 +154,7 @@ Blockly.GDL.init = function(workspace) {
  * @param {string} code Generated code.
  * @return {string} Completed code.
  */
-Blockly.GDL.finish = function(code) {
+Blockly.GDL.finish = function (code) {
     // TODO
     return code
 };
@@ -140,17 +165,17 @@ Blockly.GDL.finish = function(code) {
  * @param {string} line Line of generated code.
  * @return {string} Legal line of code.
  */
-Blockly.GDL.scrubNakedValue = function(line) {
+Blockly.GDL.scrubNakedValue = function (line) {
     return line + '\n';
 };
-  
+
 /**
  * Encode a string as a properly escaped GDL string, complete with quotes.
  * @param {string} string Text to encode.
  * @return {string} GDL string literal.
  * @private
  */
-Blockly.GDL.quote_ = function(string) {
+Blockly.GDL.quote_ = function (string) {
     // TODO escape sg?
     var QUOTE = '"';
     return QUOTE + string + QUOTE;
@@ -165,32 +190,32 @@ Blockly.GDL.quote_ = function(string) {
  * @return {string} GDL code with comments and subsequent blocks added.
  * @private
  */
-Blockly.GDL.scrub_ = function(block, code) {
+Blockly.GDL.scrub_ = function (block, code) {
     // TODO
     return code;
 };
 
-Blockly.GDL['text_print'] = function(block) {
+Blockly.GDL['text_print'] = function (block) {
     // Print statement.
     var msg = Blockly.GDL.valueToCode(block, 'TEXT',
         Blockly.GDL.ORDER_NONE) || '""';
     return 'PRINT ' + msg + '\n';
 };
 
-Blockly.GDL['text'] = function(block) {
+Blockly.GDL['text'] = function (block) {
     // Text literal.
     var quotedText = Blockly.GDL.quote_(block.getFieldValue('TEXT'));
     return [quotedText, Blockly.GDL.ORDER_ATOMIC];
 };
 
-Blockly.GDL['math_number'] = function(block) {
+Blockly.GDL['math_number'] = function (block) {
     var value = parseFloat(block.getFieldValue('NUM'));
     var order = value >= 0 ? Blockly.GDL.ORDER_ATOMIC
-                           : Blockly.GDL.ORDER_UNARY_NEGATION;
-  return [value, order];
+        : Blockly.GDL.ORDER_UNARY_NEGATION;
+    return [value, order];
 };
 
-Blockly.GDL['math_arithmetic'] = function(block) {
+Blockly.GDL['math_arithmetic'] = function (block) {
     var OPERATORS = {
         'ADD': ['+', Blockly.GDL.ORDER_ADD],
         'MINUS': ['-', Blockly.GDL.ORDER_SUBTRACT],
@@ -199,7 +224,7 @@ Blockly.GDL['math_arithmetic'] = function(block) {
         'MODULO': ['%', Blockly.GDL.ORDER_MODULO],   // TODO
         'POWER': ['^', Blockly.GDL.ORDER_POWER]
     };
-    
+
     var [op, order] = OPERATORS[block.getFieldValue('OP')];
     var argA = Blockly.GDL.valueToCode(block, 'A', order) || '0';
     var argB = Blockly.GDL.valueToCode(block, 'B', order) || '0';
@@ -208,12 +233,20 @@ Blockly.GDL['math_arithmetic'] = function(block) {
     return [code, order];
 };
 
-Blockly.GDL['gdl_3D_block'] = function(block) {
+Blockly.GDL['gdl_3d_block'] = function (block) {
     // BLOCK command
     var value_x = Blockly.GDL.valueToCode(block, 'X', Blockly.GDL.ORDER_COMMA) || '0';
     var value_y = Blockly.GDL.valueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA) || '0';
     var value_z = Blockly.GDL.valueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA) || '0';
-    
+
     var command = 'BLOCK ' + value_x + ', ' + value_y + ', ' + value_z + '\n';
+    return command;
+};
+
+Blockly.GDL['gdl_3d_ellipse'] = function (block) {
+    var value_height = Blockly.GDL.valueToCode(block, 'H', Blockly.GDL.ORDER_COMMA) || '0';
+    var value_radius = Blockly.GDL.valueToCode(block, 'R', Blockly.GDL.ORDER_COMMA) || '0';
+
+    var command = 'ELLIPS ' + value_height + ', ' + value_radius + '\n';
     return command;
 };
