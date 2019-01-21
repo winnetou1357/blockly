@@ -288,6 +288,23 @@ Blockly.GDL['math_number'] = function (block) {
     return [value, order];
 };
 
+Blockly.GDL['controls_if'] = function (block) {
+    var condition = Blockly.GDL.valueToCode(block, 'IF0', Blockly.GDL.ORDER_NONE) || '0';
+    var thenCode = Blockly.GDL.statementToCode(block, 'DO0');
+    var elseCode = block.getInput('ELSE') ? Blockly.GDL.statementToCode(block, 'ELSE') : null;
+
+    var code = 'IF ' + condition + ' THEN' + Blockly.GDL.CODE_NEWLINE;
+    code += thenCode;
+    if (elseCode) {
+        code += 'ELSE' + Blockly.GDL.CODE_NEWLINE;
+        code += elseCode + Blockly.GDL.CODE_NEWLINE;
+    }
+
+    code += 'ENDIF' + Blockly.GDL.CODE_NEWLINE;
+
+    return code;
+};
+
 Blockly.GDL['math_arithmetic'] = function (block) {
     var OPERATORS = {
         'ADD': ['+', Blockly.GDL.ORDER_ADD],
