@@ -173,6 +173,10 @@ Blockly.GDL.ORDER_NONE = 999;           //
 Blockly.GDL.ORDER_OVERRIDES = [
 ];
 
+Blockly.GDL.CODE_COMMA = ', ';
+Blockly.GDL.CODE_SPACE = ' ';
+Blockly.GDL.CODE_NEWLINE = '\n';
+
 /**
  * Initialise the database of variable names.
  * @param {!Blockly.Workspace} workspace Workspace to generate code from.
@@ -198,7 +202,7 @@ Blockly.GDL.finish = function (code) {
  * @return {string} Legal line of code.
  */
 Blockly.GDL.scrubNakedValue = function (line) {
-    return line + '\n';
+    return line + Blockly.GDL.CODE_NEWLINE;
 };
 
 /**
@@ -228,16 +232,16 @@ Blockly.GDL.scrub_ = function (block, code) {
 };
 
 Blockly.GDL._textValueToCode = function (block, field, order) {
-    return Blockly.GDL.valueToCode (block, field, order) || '""';
+    return Blockly.GDL.valueToCode(block, field, order) || '""';
 }
 
 Blockly.GDL._numValueToCode = function (block, field, order) {
-    return Blockly.GDL.valueToCode (block, field, order) || '0';
+    return Blockly.GDL.valueToCode(block, field, order) || '0';
 }
 
 Blockly.GDL['text_print'] = function (block) {
     var msg = Blockly.GDL._textValueToCode(block, 'TEXT', Blockly.GDL.ORDER_NONE);
-    return 'PRINT ' + msg + '\n';
+    return 'PRINT ' + msg + Blockly.GDL.CODE_NEWLINE;
 };
 
 Blockly.GDL['text'] = function (block) {
@@ -266,7 +270,7 @@ Blockly.GDL['math_arithmetic'] = function (block) {
     var argA = Blockly.GDL._numValueToCode(block, 'A', order);
     var argB = Blockly.GDL._numValueToCode(block, 'B', order);
 
-    var code = argA + ' ' + op + ' ' + argB;
+    var code = argA + Blockly.GDL.CODE_SPACE + op + Blockly.GDL.CODE_SPACE + argB;
     return [code, order];
 };
 
@@ -276,7 +280,7 @@ Blockly.GDL['gdl_3d_block'] = function (block) {
     var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
     var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
 
-    var command = 'BLOCK ' + value_x + ', ' + value_y + ', ' + value_z + '\n';
+    var command = 'BLOCK ' + value_x + Blockly.GDL.CODE_COMMA + value_y + Blockly.GDL.CODE_COMMA + value_z + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
 
@@ -284,19 +288,19 @@ Blockly.GDL['gdl_3d_ellipse'] = function (block) {
     var value_height = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
     var value_radius = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA);
 
-    var command = 'ELLIPS ' + value_height + ', ' + value_radius + '\n';
+    var command = 'ELLIPS ' + value_height + Blockly.GDL.CODE_COMMA + value_radius + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
 
 Blockly.GDL['gdl_3d_cone'] = function (block) {
-    var value_h         = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
-    var value_r_bottom  = Blockly.GDL._numValueToCode(block, 'R_BOTTOM', Blockly.GDL.ORDER_COMMA);
-    var value_r_top     = Blockly.GDL._numValueToCode(block, 'R_TOP', Blockly.GDL.ORDER_COMMA);
+    var value_h = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
+    var value_r_bottom = Blockly.GDL._numValueToCode(block, 'R_BOTTOM', Blockly.GDL.ORDER_COMMA);
+    var value_r_top = Blockly.GDL._numValueToCode(block, 'R_TOP', Blockly.GDL.ORDER_COMMA);
 
     var DEFAULT_ANGLE_BOTTOM = 90;
     var DEFAULT_ANGLE_TOP = 90;
 
-    var command = 'CONE ' + value_h + ', ' + value_r_bottom + ', ' + value_r_top + ', ' +
-        DEFAULT_ANGLE_BOTTOM + ', ' + DEFAULT_ANGLE_TOP + '\n';
+    var command = 'CONE ' + value_h + Blockly.GDL.CODE_COMMA + value_r_bottom + Blockly.GDL.CODE_COMMA + value_r_top + Blockly.GDL.CODE_COMMA +
+        DEFAULT_ANGLE_BOTTOM + Blockly.GDL.CODE_COMMA + DEFAULT_ANGLE_TOP + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
