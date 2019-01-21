@@ -236,13 +236,11 @@ Blockly.GDL._numValueToCode = function (block, field, order) {
 }
 
 Blockly.GDL['text_print'] = function (block) {
-    // Print statement.
     var msg = Blockly.GDL._textValueToCode(block, 'TEXT', Blockly.GDL.ORDER_NONE);
     return 'PRINT ' + msg + '\n';
 };
 
 Blockly.GDL['text'] = function (block) {
-    // Text literal.
     var quotedText = Blockly.GDL.quote_(block.getFieldValue('TEXT'));
     return [quotedText, Blockly.GDL.ORDER_ATOMIC];
 };
