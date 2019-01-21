@@ -263,8 +263,8 @@ Blockly.GDL['math_arithmetic'] = function (block) {
     };
 
     var [op, order] = OPERATORS[block.getFieldValue('OP')];
-    var argA = Blockly.GDL._numValueToCode(block, 'A', order) || '0';
-    var argB = Blockly.GDL._numValueToCode(block, 'B', order) || '0';
+    var argA = Blockly.GDL._numValueToCode(block, 'A', order);
+    var argB = Blockly.GDL._numValueToCode(block, 'B', order);
 
     var code = argA + ' ' + op + ' ' + argB;
     return [code, order];
@@ -272,26 +272,26 @@ Blockly.GDL['math_arithmetic'] = function (block) {
 
 Blockly.GDL['gdl_3d_block'] = function (block) {
     // BLOCK command
-    var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA) || '0';
-    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA) || '0';
-    var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA) || '0';
+    var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
 
     var command = 'BLOCK ' + value_x + ', ' + value_y + ', ' + value_z + '\n';
     return command;
 };
 
 Blockly.GDL['gdl_3d_ellipse'] = function (block) {
-    var value_height = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA) || '0';
-    var value_radius = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA) || '0';
+    var value_height = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
+    var value_radius = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA);
 
     var command = 'ELLIPS ' + value_height + ', ' + value_radius + '\n';
     return command;
 };
 
 Blockly.GDL['gdl_3d_cone'] = function (block) {
-    var value_h         = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA)          || '0';
-    var value_r_bottom  = Blockly.GDL._numValueToCode(block, 'R_BOTTOM', Blockly.GDL.ORDER_COMMA)   || '0';
-    var value_r_top     = Blockly.GDL._numValueToCode(block, 'R_TOP', Blockly.GDL.ORDER_COMMA)      || '0';
+    var value_h         = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
+    var value_r_bottom  = Blockly.GDL._numValueToCode(block, 'R_BOTTOM', Blockly.GDL.ORDER_COMMA);
+    var value_r_top     = Blockly.GDL._numValueToCode(block, 'R_TOP', Blockly.GDL.ORDER_COMMA);
 
     var DEFAULT_ANGLE_BOTTOM = 90;
     var DEFAULT_ANGLE_TOP = 90;
