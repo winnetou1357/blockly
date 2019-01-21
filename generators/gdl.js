@@ -173,6 +173,9 @@ Blockly.GDL.ORDER_NONE = 999;           //
 Blockly.GDL.ORDER_OVERRIDES = [
 ];
 
+/**
+ * Repeatedly appearing code fragments.
+ */
 Blockly.GDL.CODE_COMMA = ', ';
 Blockly.GDL.CODE_SPACE = ' ';
 Blockly.GDL.CODE_NEWLINE = '\n';
