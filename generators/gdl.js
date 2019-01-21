@@ -230,8 +230,37 @@ Blockly.GDL.quote_ = function (string) {
  * @private
  */
 Blockly.GDL.scrub_ = function (block, code) {
-    // TODO
-    return code;
+    var commentCode = '';
+    // Only collect comments for blocks that aren't inline.
+    if (!block.outputConnection || !block.outputConnection.targetConnection) {
+        // Collect comment for this block.
+        var comment = block.getCommentText();
+        comment = Blockly.utils.wrap(comment, Blockly.GDL.COMMENT_WRAP - 3);
+        if (comment) {
+            if (block.getProcedureDef) {
+                // Use double !! for procedure comments.
+                commentCode += Blockly.GDL.prefixLines(comment + '\n', '!! ');
+            } else {
+                commentCode += Blockly.GDL.prefixLines(comment + '\n', '! ');
+            }
+        }
+        // Collect comments for all value arguments.
+        // Don't collect comments for nested statements.
+        for (var i = 0; i < block.inputList.length; i++) {
+            if (block.inputList[i].type == Blockly.INPUT_VALUE) {
+                var childBlock = block.inputList[i].connection.targetBlock();
+                if (childBlock) {
+                    var comment = Blockly.GDL.allNestedComments(childBlock);
+                    if (comment) {
+                        commentCode += Blockly.GDL.prefixLines(comment, '! ');
+                    }
+                }
+            }
+        }
+    }
+    var nextBlock = block.nextConnection && block.nextConnection.targetBlock();
+    var nextCode = Blockly.GDL.blockToCode(nextBlock);
+    return commentCode + code + nextCode;
 };
 
 Blockly.GDL._textValueToCode = function (block, field, order) {
