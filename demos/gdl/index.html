@@ -31,16 +31,22 @@
 
   <xml id="toolbox" style="display: none">
     <!-- GDL generators -->
-    <block type="gdl_3d_block"></block>
-    <block type="gdl_3d_ellipse"></block>
-    <block type="gdl_3d_cone"></block>
+    <category name="Simple Bodies" colour="210">
+      <block type="gdl_3d_block"></block>
+      <block type="gdl_3d_ellipse"></block>
+      <block type="gdl_3d_cone"></block>
+    </category>
 
     <!-- GDL control structures -->
-    <block type="controls_if"></block>
+    <category name="Controls" colour="220">
+      <block type="controls_if"></block>
+    </category>
 
     <!-- GDL expressions -->
-    <block type="math_arithmetic"></block>
-    <block type="math_number"></block>
+    <category name="Basic Math" colour="230">
+      <block type="math_arithmetic"></block>
+      <block type="math_number"></block>
+    </category>
   </xml>
 
   <xml id="startBlocks" style="display: none">
@@ -74,7 +80,10 @@
 
   <script>
     var demoWorkspace = Blockly.inject('blocklyDiv',
-      { toolbox: document.getElementById('toolbox') });
+      { 
+        toolbox: document.getElementById('toolbox'),
+        horizontalLayout: 'true' 
+      });
     Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), demoWorkspace);
 
     function showCode() {
