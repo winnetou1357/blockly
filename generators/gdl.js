@@ -35,29 +35,17 @@ goog.require('Blockly.Generator');
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
         "type": "gdl_3d_block",
-        "message0": "BLOCK %1 szélesség %2 %3 mélység %4 %5 magasság %6 %7",
+        "message0": "block %1 width %2 depth %3 height",
         "args0": [
-            {
-                "type": "input_dummy"
-            },
-            {
-                "type": "input_dummy"
-            },
             {
                 "type": "input_value",
                 "name": "X",
                 "check": "Number"
             },
             {
-                "type": "input_dummy"
-            },
-            {
                 "type": "input_value",
                 "name": "Y",
                 "check": "Number"
-            },
-            {
-                "type": "input_dummy"
             },
             {
                 "type": "input_value",
@@ -68,22 +56,16 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 230,
+        "colour": 270,
         "tooltip": "",
         "helpUrl": ""
     }, {
         "type": "gdl_3d_ellipse",
-        "message0": "ELLIPSE h = %1 %2 r = %3 %4",
+        "message0": "ellips %1 height %2 radius",
         "args0": [
-            {
-                "type": "input_dummy"
-            },
             {
                 "type": "input_value",
                 "name": "H"
-            },
-            {
-                "type": "input_dummy"
             },
             {
                 "type": "input_value",
@@ -93,29 +75,20 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 230,
+        "colour": 270,
         "tooltip": "",
         "helpUrl": ""
     }, {
         "type": "gdl_3d_cone",
-        "message0": "CONE h = %1 %2 r_bottom = %3 %4 r_top = %5 %6",
+        "message0": "cone %1 height %2 bottom radius %3 top radius",
         "args0": [
-            {
-                "type": "input_dummy"
-            },
             {
                 "type": "input_value",
                 "name": "H"
             },
             {
-                "type": "input_dummy"
-            },
-            {
                 "type": "input_value",
                 "name": "R_BOTTOM"
-            },
-            {
-                "type": "input_dummy"
             },
             {
                 "type": "input_value",
@@ -125,7 +98,37 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 230,
+        "colour": 270,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "controls_if",
+        "message0": "if %1 then %2 %3 else %4 %5 endif",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "IF0"
+            },
+            {
+                "type": "input_dummy",
+            },
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            },
+            {
+                "type": "input_dummy",
+            },
+            {
+                "type": "input_statement",
+                "name": "ELSE"
+            }
+        ],
+
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 225,
         "tooltip": "",
         "helpUrl": ""
     }
