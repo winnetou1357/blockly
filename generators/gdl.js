@@ -35,18 +35,24 @@ goog.require('Blockly.Generator');
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
         "type": "gdl_3d_block",
-        "message0": "block %1 width %2 depth %3 height",
+        "message0": "block %1 width",
         "args0": [
             {
                 "type": "input_value",
                 "name": "X",
                 "check": "Number"
-            },
+            }
+        ],
+        "message1": "%1 depth",
+        "args1": [
             {
                 "type": "input_value",
                 "name": "Y",
                 "check": "Number"
-            },
+            }
+        ],
+        "message2": "%1 height",
+        "args2": [
             {
                 "type": "input_value",
                 "name": "Z",
