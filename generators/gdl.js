@@ -306,7 +306,7 @@ Blockly.GDL['gdl_controls_if'] = function (block) {
     code += thenCode;
     if (elseCode) {
         code += 'ELSE' + Blockly.GDL.CODE_NEWLINE;
-        code += elseCode + Blockly.GDL.CODE_NEWLINE;
+        code += elseCode;
     }
 
     code += 'ENDIF' + Blockly.GDL.CODE_NEWLINE;
