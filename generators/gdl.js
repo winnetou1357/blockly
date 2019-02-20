@@ -35,31 +35,27 @@ goog.require('Blockly.Generator');
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
         "type": "gdl_3d_block",
-        "message0": "block %1 width",
+        "message0": "block width %1 depth %2 height %3",
         "args0": [
             {
                 "type": "input_value",
                 "name": "X",
-                "check": "Number"
-            }
-        ],
-        "message1": "%1 depth",
-        "args1": [
+                "check": "Number",
+                "align": "RIGHT"
+            },
             {
                 "type": "input_value",
                 "name": "Y",
-                "check": "Number"
-            }
-        ],
-        "message2": "%1 height",
-        "args2": [
+                "check": "Number",
+                "align": "RIGHT"
+            },
             {
                 "type": "input_value",
                 "name": "Z",
-                "check": "Number"
+                "check": "Number",
+                "align": "RIGHT"
             }
         ],
-        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 270,
@@ -67,18 +63,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "helpUrl": ""
     }, {
         "type": "gdl_3d_ellipse",
-        "message0": "ellips %1 height %2 radius",
+        "message0": "ellips height %1 radius %2",
         "args0": [
             {
                 "type": "input_value",
-                "name": "H"
+                "name": "H",
+                "align": "RIGHT"
             },
             {
                 "type": "input_value",
-                "name": "R"
+                "name": "R",
+                "align": "RIGHT"
             }
         ],
-        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 270,
@@ -86,22 +83,25 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "helpUrl": ""
     }, {
         "type": "gdl_3d_cone",
-        "message0": "cone %1 height %2 bottom radius %3 top radius",
+        
+        "message0": "cone    height %1 bottom radius %2 top radius %3",
         "args0": [
             {
                 "type": "input_value",
-                "name": "H"
+                "name": "H",
+                "align": "RIGHT"
             },
             {
                 "type": "input_value",
-                "name": "R_BOTTOM"
+                "name": "R_BOTTOM",
+                "align": "RIGHT"
             },
             {
                 "type": "input_value",
-                "name": "R_TOP"
+                "name": "R_TOP",
+                "align": "RIGHT"
             }
         ],
-        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 270,
