@@ -109,28 +109,31 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "helpUrl": ""
     }, {
         "type": "gdl_controls_if",
-        "message0": "if %1 then %2 %3 else %4 %5 endif",
+        "message0": "if %1 then",
         "args0": [
             {
                 "type": "input_value",
                 "name": "IF0"
-            },
-            {
-                "type": "input_dummy",
-            },
+            }
+        ],
+        "message1": "%1",
+        "args1": [
             {
                 "type": "input_statement",
                 "name": "DO0"
-            },
-            {
-                "type": "input_dummy",
-            },
-            {
+            }
+        ],
+        "message2": "else",
+        "args2": [],
+        "message3": "%1",
+        "args3": [
+           {
                 "type": "input_statement",
                 "name": "ELSE"
             }
         ],
-
+        "message4": "endif",
+        "args4": [],
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
