@@ -62,6 +62,20 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "tooltip": "",
         "helpUrl": ""
     }, {
+        "type": "gdl_3d_sphere",
+        "message0": "sphere radius %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "R"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 270,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
         "type": "gdl_3d_ellipse",
         "message0": "ellips height %1 radius %2",
         "args0": [
@@ -282,7 +296,7 @@ Blockly.GDL._numValueToCode = function (block, field, order) {
 
 Blockly.GDL['text_print'] = function (block) {
     var msg = Blockly.GDL._textValueToCode(block, 'TEXT', Blockly.GDL.ORDER_NONE);
-    return 'PRINT ' + msg + Blockly.GDL.CODE_NEWLINE;
+    return 'print ' + msg + Blockly.GDL.CODE_NEWLINE;
 };
 
 Blockly.GDL['text'] = function (block) {
@@ -302,14 +316,14 @@ Blockly.GDL['gdl_controls_if'] = function (block) {
     var thenCode = Blockly.GDL.statementToCode(block, 'DO0');
     var elseCode = block.getInput('ELSE') ? Blockly.GDL.statementToCode(block, 'ELSE') : null;
 
-    var code = 'IF ' + condition + ' THEN' + Blockly.GDL.CODE_NEWLINE;
+    var code = 'if ' + condition + ' THEN' + Blockly.GDL.CODE_NEWLINE;
     code += thenCode;
     if (elseCode) {
-        code += 'ELSE' + Blockly.GDL.CODE_NEWLINE;
+        code += 'else' + Blockly.GDL.CODE_NEWLINE;
         code += elseCode + Blockly.GDL.CODE_NEWLINE;
     }
 
-    code += 'ENDIF' + Blockly.GDL.CODE_NEWLINE;
+    code += 'endif' + Blockly.GDL.CODE_NEWLINE;
 
     return code;
 };
@@ -338,7 +352,14 @@ Blockly.GDL['gdl_3d_block'] = function (block) {
     var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
     var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
 
-    var command = 'BLOCK ' + value_x + Blockly.GDL.CODE_COMMA + value_y + Blockly.GDL.CODE_COMMA + value_z + Blockly.GDL.CODE_NEWLINE;
+    var command = 'block ' + value_x + Blockly.GDL.CODE_COMMA + value_y + Blockly.GDL.CODE_COMMA + value_z + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+
+Blockly.GDL['gdl_3d_sphere'] = function (block) {
+    var value_radius = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'sphere ' + value_radius + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
 
@@ -346,7 +367,7 @@ Blockly.GDL['gdl_3d_ellipse'] = function (block) {
     var value_height = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
     var value_radius = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA);
 
-    var command = 'ELLIPS ' + value_height + Blockly.GDL.CODE_COMMA + value_radius + Blockly.GDL.CODE_NEWLINE;
+    var command = 'ellips ' + value_height + Blockly.GDL.CODE_COMMA + value_radius + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
 
@@ -358,7 +379,7 @@ Blockly.GDL['gdl_3d_cone'] = function (block) {
     var DEFAULT_ANGLE_BOTTOM = 90;
     var DEFAULT_ANGLE_TOP = 90;
 
-    var command = 'CONE ' + value_h + Blockly.GDL.CODE_COMMA + value_r_bottom + Blockly.GDL.CODE_COMMA + value_r_top + Blockly.GDL.CODE_COMMA +
+    var command = 'cone ' + value_h + Blockly.GDL.CODE_COMMA + value_r_bottom + Blockly.GDL.CODE_COMMA + value_r_top + Blockly.GDL.CODE_COMMA +
         DEFAULT_ANGLE_BOTTOM + Blockly.GDL.CODE_COMMA + DEFAULT_ANGLE_TOP + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
