@@ -142,6 +142,54 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "tooltip": "",
         "helpUrl": ""
     }, {
+        "type": "gdl_3d_addx",
+        
+        "message0": "addx %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "X",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 140,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_3d_addy",
+        
+        "message0": "addy %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "Y",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 140,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_3d_addz",
+        
+        "message0": "addz %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "Z",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 140,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
         "type": "gdl_controls_if",
         "message0": "if %1 then %2 %3 else %4 %5 endif",
         "args0": [
@@ -364,6 +412,26 @@ Blockly.GDL['math_arithmetic'] = function (block) {
 
     var code = argA + Blockly.GDL.CODE_SPACE + op + Blockly.GDL.CODE_SPACE + argB;
     return [code, order];
+};
+Blockly.GDL['gdl_3d_addx'] = function (block) {
+    var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'addx ' + value_x + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+
+Blockly.GDL['gdl_3d_addy'] = function (block) {
+    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'addy ' + value_y + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+
+Blockly.GDL['gdl_3d_addz'] = function (block) {
+    var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'addz ' + value_z + Blockly.GDL.CODE_NEWLINE;
+    return command;
 };
 
 Blockly.GDL['gdl_3d_block'] = function (block) {
