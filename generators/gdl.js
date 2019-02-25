@@ -336,7 +336,7 @@ Blockly.GDL['gdl_controls_if'] = function (block) {
     var thenCode = Blockly.GDL.statementToCode(block, 'DO0');
     var elseCode = block.getInput('ELSE') ? Blockly.GDL.statementToCode(block, 'ELSE') : null;
 
-    var code = 'if ' + condition + ' THEN' + Blockly.GDL.CODE_NEWLINE;
+    var code = 'if ' + condition + ' then' + Blockly.GDL.CODE_NEWLINE;
     code += thenCode;
     if (elseCode) {
         code += 'else' + Blockly.GDL.CODE_NEWLINE;
