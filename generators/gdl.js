@@ -238,6 +238,54 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "tooltip": "",
         "helpUrl": ""
     }, {
+        "type": "gdl_3d_mulx",
+        
+        "message0": "mulx %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "X",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 140,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_3d_muly",
+        
+        "message0": "muly %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "Y",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 140,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_3d_mulz",
+        
+        "message0": "mulz %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "Z",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 140,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
         "type": "gdl_controls_if",
         "message0": "if %1 then %2 %3 else %4 %5 endif",
         "args0": [
@@ -501,6 +549,27 @@ Blockly.GDL['gdl_3d_rotz'] = function (block) {
     var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
 
     var command = 'rotz ' + value_z + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+
+Blockly.GDL['gdl_3d_mulx'] = function (block) {
+    var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'mulx ' + value_x + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+
+Blockly.GDL['gdl_3d_muly'] = function (block) {
+    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'muly ' + value_y + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+
+Blockly.GDL['gdl_3d_mulz'] = function (block) {
+    var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'mulz ' + value_z + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
 
