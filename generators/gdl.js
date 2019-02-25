@@ -76,6 +76,26 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "tooltip": "",
         "helpUrl": ""
     }, {
+        "type": "gdl_3d_cylind",
+        "message0": "cylind height %1 radius %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "H",
+                "align": "RIGHT"
+            },
+            {
+                "type": "input_value",
+                "name": "R",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 270,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
         "type": "gdl_3d_ellipse",
         "message0": "ellips height %1 radius %2",
         "args0": [
@@ -360,6 +380,13 @@ Blockly.GDL['gdl_3d_sphere'] = function (block) {
     var value_radius = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA);
 
     var command = 'sphere ' + value_radius + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+Blockly.GDL['gdl_3d_cylind'] = function (block) {
+    var value_height = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
+    var value_radius = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'cylind ' + value_height + Blockly.GDL.CODE_COMMA + value_radius + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
 
