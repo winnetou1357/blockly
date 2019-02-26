@@ -286,13 +286,8 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
                 "name": "DO0"
             }
         ],
-        "message2": "del %1",
-        "args2": [
-           {
-                "type": "input_value",
-                "name": "DEL"
-            }
-        ],
+        "message2": "del 1",
+        "args2": [],
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
@@ -618,13 +613,10 @@ Blockly.GDL['gdl_3d_muly'] = function (block) {
 Blockly.GDL['gdl_3d_mulz'] = function (block) {
     var mulValue = Blockly.GDL.valueToCode(block, 'Z', Blockly.GDL.ORDER_NONE) || '0';
     var mulCode = Blockly.GDL.statementToCode(block, 'DO0');
-    var delValue = Blockly.GDL.valueToCode(block, 'DEL', Blockly.GDL.ORDER_NONE) || '0';
 
     var code = 'mulz ' + mulValue + Blockly.GDL.CODE_NEWLINE;
     code += mulCode;
-    if (delValue) {
-        code += 'del ' + delValue + Blockly.GDL.CODE_NEWLINE;
-    }
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
 
     return code;
 };
