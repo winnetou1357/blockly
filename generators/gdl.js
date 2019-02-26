@@ -410,6 +410,7 @@ Blockly.GDL.addReservedWords(
  * http://gdl.graphisoft.com/reference-guide/operators
  */
 Blockly.GDL.ORDER_ATOMIC = 0;            // 0 "" ...
+Blockly.GDL.ORDER_UNARY_NEGATION = 0.5;
 
 Blockly.GDL.ORDER_POWER = 1;
 Blockly.GDL.ORDER_MULTIPLY = 2;
@@ -646,7 +647,7 @@ Blockly.GDL['gdl_3d_muly'] = function (block) {
 };
 
 Blockly.GDL['gdl_3d_mulz'] = function (block) {
-    var mulValue = Blockly.GDL.valueToCode(block, 'Z', Blockly.GDL.ORDER_NONE) || '0';
+    var mulValue = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
     var mulCode = Blockly.GDL.statementToCode(block, 'DO0');
 
     var code = 'mulz ' + mulValue + Blockly.GDL.CODE_NEWLINE;
