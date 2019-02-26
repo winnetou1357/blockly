@@ -327,7 +327,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "tooltip": "",
         "helpUrl": ""
     }, {
-        "type": "gdl_controls_if",
+        "type": "gdl_controls_if_el_end",
         "message0": "if %1 then",
         "args0": [
             {
@@ -519,7 +519,7 @@ Blockly.GDL['math_number'] = function (block) {
     return [value, order];
 };
 
-Blockly.GDL['gdl_controls_if'] = function (block) {
+Blockly.GDL['gdl_controls_if_el_end'] = function (block) {
     var condition = Blockly.GDL.valueToCode(block, 'IF0', Blockly.GDL.ORDER_NONE) || '0';
     var thenCode = Blockly.GDL.statementToCode(block, 'DO0');
     var elseCode = block.getInput('ELSE') ? Blockly.GDL.statementToCode(block, 'ELSE') : null;
