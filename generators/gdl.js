@@ -148,10 +148,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "X",
-                "align": "RIGHT"
+                "name": "X"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -164,10 +173,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "Y",
-                "align": "RIGHT"
+                "name": "Y"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -180,10 +198,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "Z",
-                "align": "RIGHT"
+                "name": "Z"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -636,24 +663,36 @@ Blockly.GDL['math_arithmetic'] = function (block) {
 };
 
 Blockly.GDL['gdl_3d_addx'] = function (block) {
-    var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+    var addValue = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+    var addCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'addx ' + value_x + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'addx ' + addValue + Blockly.GDL.CODE_NEWLINE;
+    code += addCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+    
+    return code;
 };
 
 Blockly.GDL['gdl_3d_addy'] = function (block) {
-    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var addValue = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var addCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'addy ' + value_y + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'addy ' + addValue + Blockly.GDL.CODE_NEWLINE;
+    code += addCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+    
+    return code;
 };
 
 Blockly.GDL['gdl_3d_addz'] = function (block) {
-    var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
+    var addValue = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
+    var addCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'addz ' + value_z + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'addz ' + addValue + Blockly.GDL.CODE_NEWLINE;
+    code += addCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+    
+    return code;
 };
 
 Blockly.GDL['gdl_3d_rotx'] = function (block) {
