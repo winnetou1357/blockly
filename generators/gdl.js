@@ -196,10 +196,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "X",
-                "align": "RIGHT"
+                "name": "X"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -212,10 +221,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "Y",
-                "align": "RIGHT"
+                "name": "Y"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -228,10 +246,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "Z",
-                "align": "RIGHT"
+                "name": "Z"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -244,10 +271,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "X",
-                "align": "RIGHT"
+                "name": "X"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -260,10 +296,19 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "Y",
-                "align": "RIGHT"
+                "name": "Y"
             }
         ],
+        "message1": "%1",
+        "args1": [
+            {
+                "type": "input_statement",
+                "name": "DO0"
+            }
+        ],
+        "message2": "del 1",
+        "args2": [],
+        "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
         "colour": 140,
@@ -276,7 +321,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "args0": [
             {
                 "type": "input_value",
-                "name": "Z",
+                "name": "Z"
             }
         ],
         "message1": "%1",
@@ -612,38 +657,58 @@ Blockly.GDL['gdl_3d_addz'] = function (block) {
 };
 
 Blockly.GDL['gdl_3d_rotx'] = function (block) {
-    var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+    var rotValue = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+    var rotCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'rotx ' + value_x + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'rotx ' + rotValue + Blockly.GDL.CODE_NEWLINE;
+    code += rotCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+    
+    return code;
 };
 
 Blockly.GDL['gdl_3d_roty'] = function (block) {
-    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var rotValue = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var rotCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'roty ' + value_y + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'roty ' + rotValue + Blockly.GDL.CODE_NEWLINE;
+    code += rotCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+    
+    return code;
 };
 
 Blockly.GDL['gdl_3d_rotz'] = function (block) {
-    var value_z = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
+    var rotValue = Blockly.GDL._numValueToCode(block, 'Z', Blockly.GDL.ORDER_COMMA);
+    var rotCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'rotz ' + value_z + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'rotz ' + rotValue + Blockly.GDL.CODE_NEWLINE;
+    code += rotCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+    
+    return code;
 };
 
 Blockly.GDL['gdl_3d_mulx'] = function (block) {
-    var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+    var mulValue = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
+    var mulCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'mulx ' + value_x + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'mulx ' + mulValue + Blockly.GDL.CODE_NEWLINE;
+    code += mulCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+    
+    return code;
 };
 
 Blockly.GDL['gdl_3d_muly'] = function (block) {
-    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var mulValue = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var mulCode = Blockly.GDL.statementToCode(block, 'DO0');
 
-    var command = 'muly ' + value_y + Blockly.GDL.CODE_NEWLINE;
-    return command;
+    var code = 'muly ' + mulValue + Blockly.GDL.CODE_NEWLINE;
+    code += mulCode;
+    code += 'del 1' + Blockly.GDL.CODE_NEWLINE;
+
+    return code;
 };
 
 Blockly.GDL['gdl_3d_mulz'] = function (block) {
