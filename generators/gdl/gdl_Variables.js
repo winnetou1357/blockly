@@ -55,15 +55,16 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
 
 Blockly.GDL['gdl_set_variable'] = function (block) {
-    var actVar = Blockly.GDL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+    var actVarName = Blockly.GDL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
     var actVarVal = block.inputList[0].connection.targetBlock();
-    var code = actVar + " = " + actVarVal + Blockly.GDL.CODE_NEWLINE;
+    var code = actVarName + " = " + actVarVal + Blockly.GDL.CODE_NEWLINE;
 
     return code;
 };
 
 Blockly.GDL['gdl_get_variable'] = function (block) {
     var actVar = Blockly.GDL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
+    var order = Blockly.GDL.ORDER_ATOMIC;
 
-    return actVar;
+    return [actVar, order];
 };
