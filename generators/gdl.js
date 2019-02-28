@@ -188,7 +188,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -213,7 +213,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -238,7 +238,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -263,7 +263,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -288,7 +288,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -313,7 +313,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -338,7 +338,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -363,7 +363,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 140,
+        "colour": 120,
         "tooltip": "",
         "helpUrl": ""
     }, {
