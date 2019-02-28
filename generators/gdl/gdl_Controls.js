@@ -8,6 +8,7 @@ goog.provide('Blockly.GDL.Controls');
 
 goog.require('Blockly.GDL');
 
+/**
 Blockly.Extensions.register('gdl_for_variable',
   new function() {
   var block = this;
@@ -18,6 +19,7 @@ Blockly.Extensions.register('gdl_for_variable',
   targetName.setText(textInput);
   }
 );
+ */
 
 /**
  * GDL custom code blocks.
@@ -113,7 +115,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
                 "name": "NEXT"
             },
         ],
-        "extensions":["gdl_for_variable"], 
+        //"extensions":["gdl_for_variable"], 
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
