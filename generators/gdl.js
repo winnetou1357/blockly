@@ -650,7 +650,7 @@ Blockly.GDL['math_arithmetic'] = function (block) {
         'MINUS': ['-', Blockly.GDL.ORDER_SUBTRACT],
         'MULTIPLY': ['*', Blockly.GDL.ORDER_MULTIPLY],
         'DIVIDE': ['/', Blockly.GDL.ORDER_DIVIDE],
-        'MODULO': ['%', Blockly.GDL.ORDER_MODULO],   // TODO
+        'MODULO': ['%', Blockly.GDL.ORDER_MODULO],
         'POWER': ['^', Blockly.GDL.ORDER_POWER]
     };
 
