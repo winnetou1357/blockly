@@ -75,6 +75,7 @@ Blockly.GDL['lists_create_with'] = function (block) {
 Blockly.GDL['gdl_3d_prism'] = function (block) {
     var value_h = Blockly.GDL._numValueToCode(block, 'H', Blockly.GDL.ORDER_COMMA);
 
+    //Second element in block input list, which is the coordinate list 
     var coordinate_block_list = block.inputList[1].connection.targetBlock();
     var coordinate_count = 0;
 

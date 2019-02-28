@@ -88,7 +88,13 @@ Blockly.GDL.CODE_NEWLINE = '\n';
  * @param {!Blockly.Workspace} workspace Workspace to generate code from.
  */
 Blockly.GDL.init = function (workspace) {
-    // TODO ?
+    if (!Blockly.GDL.variableDB_) {
+        Blockly.GDL.variableDB_ =
+            new Blockly.Names(Blockly.GDL.RESERVED_WORDS_);
+      } else {
+        Blockly.GDL.variableDB_.reset();
+      }
+    Blockly.GDL.variableDB_.setVariableMap(workspace.getVariableMap());
 };
 
 /**
@@ -173,6 +179,7 @@ Blockly.GDL._textValueToCode = function (block, field, order) {
 Blockly.GDL._numValueToCode = function (block, field, order) {
     return Blockly.GDL.valueToCode(block, field, order) || '0';
 }
+
 
 Blockly.GDL['text_print'] = function (block) {
     var msg = Blockly.GDL._textValueToCode(block, 'TEXT', Blockly.GDL.ORDER_NONE);
