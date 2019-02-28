@@ -51,19 +51,22 @@ Blockly.GDL.addReservedWords(
  * Order of operators
  * http://gdl.graphisoft.com/reference-guide/operators
  */
-Blockly.GDL.ORDER_ATOMIC = 0;            // 0 "" ...
-Blockly.GDL.ORDER_UNARY_NEGATION = 0.5;
+Blockly.GDL.ORDER_ATOMIC    = 0;            // 0 "" ...
+Blockly.GDL.ORDER_UNARY_NEGATION = 1;
 
-Blockly.GDL.ORDER_POWER = 1;
-Blockly.GDL.ORDER_MULTIPLY = 2;
-Blockly.GDL.ORDER_DIVIDE = Blockly.GDL.ORDER_MULTIPLY;
-Blockly.GDL.ORDER_MODULO = Blockly.GDL.ORDER_MULTIPLY;
-Blockly.GDL.ORDER_ADD = 3;
-Blockly.GDL.ORDER_SUBTRACT = Blockly.GDL.ORDER_ADD;
-Blockly.GDL.ORDER_RELATION = 4;
+Blockly.GDL.ORDER_POWER     = 2;
+Blockly.GDL.ORDER_MULTIPLY  = 3;
+Blockly.GDL.ORDER_DIVIDE    = Blockly.GDL.ORDER_MULTIPLY;
+Blockly.GDL.ORDER_MODULO    = Blockly.GDL.ORDER_MULTIPLY;
+Blockly.GDL.ORDER_ADD       = 4;
+Blockly.GDL.ORDER_SUBTRACT  = Blockly.GDL.ORDER_ADD;
+Blockly.GDL.ORDER_RELATION  = 5;
+Blockly.GDL.ORDER_AND       = 6;
+Blockly.GDL.ORDER_OR        = 7;
+Blockly.GDL.ORDER_EXOR      = 8;
 
-Blockly.GDL.ORDER_COMMA = 998;          // , parameter separator
-Blockly.GDL.ORDER_NONE = 999;           // 
+Blockly.GDL.ORDER_COMMA     = 998;          // , parameter separator
+Blockly.GDL.ORDER_NONE      = 999;           // 
 
 /**
  * List of outer-inner pairings that do NOT require parentheses.

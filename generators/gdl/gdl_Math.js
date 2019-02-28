@@ -43,6 +43,33 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": true,
         "output": "Number",
         "colour": 190,
+    },{
+        "type": "gdl_math_operator",
+        "message0": "%1 %2 %3",
+        "args0": [
+          {
+            "type": "input_value",
+            "name": "A",
+            "check": "Number"
+          },
+          {
+            "type": "field_dropdown",
+            "name": "OP",
+            "options": [
+              ["&", "AND"],
+              ["|", "OR"],
+              ["@", "EXOR"]
+            ]
+          },
+          {
+            "type": "input_value",
+            "name": "B",
+            "check": "Number"
+          }
+        ],
+        "inputsInline": true,
+        "output": "Number",
+        "colour": 190,
     }
 ]);
 
@@ -93,3 +120,17 @@ Blockly.GDL['gdl_math_compare'] = function (block) {
     return [code, order];
 };
 
+Blockly.GDL['gdl_math_operator'] = function (block) {
+    var OPERATORS = {
+        'AND': ['&', Blockly.GDL.ORDER_AND],
+        'OR': ['|', Blockly.GDL.ORDER_OR],
+        'EXOR': ['@', Blockly.GDL.ORDER_EXOR]
+    };
+
+    var [op, order] = OPERATORS[block.getFieldValue('OP')];
+    var argA = Blockly.GDL._numValueToCode(block, 'A', order);
+    var argB = Blockly.GDL._numValueToCode(block, 'B', order);
+
+    var code = argA + Blockly.GDL.CODE_SPACE + op + Blockly.GDL.CODE_SPACE + argB;
+    return [code, order];
+};
