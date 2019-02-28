@@ -40,6 +40,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             "check": "Number"
           }
         ],
+        "extensions":["gdl_math_op_tooltip"], 
         "inputsInline": true,
         "output": "Number",
         "colour": 190,
@@ -67,11 +68,96 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             "check": "Number"
           }
         ],
+        "extensions":["gdl_math_op_tooltip"], 
         "inputsInline": true,
         "output": "Number",
         "colour": 190,
+    }, {
+        "type": "gdl_math_abs",
+        "message0": "abs(%1)",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "A"
+            }
+        ],
+        "output": "Number",
+        "colour": 190,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_math_sqr",
+        "message0": "sqr(%1)",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "A"
+            }
+        ],
+        "output": "Number",
+        "colour": 190,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_math_sin",
+        "message0": "sin(%1)",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "A"
+            }
+        ],
+        "output": "Number",
+        "colour": 190,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_math_cos",
+        "message0": "cos(%1)",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "A"
+            }
+        ],
+        "output": "Number",
+        "colour": 190,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
+        "type": "gdl_math_tan",
+        "message0": "tan(%1)",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "A"
+            }
+        ],
+        "output": "Number",
+        "colour": 190,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);
+
+Blockly.GDL.Math.TOOLTIPS_BY_OP = {  
+    // math_compare
+    'EQUAL': 'Equals with',
+    'SMALLER': 'Smaller than',
+    'BIGGER': 'Bigger than',
+    'SMALLEQ': 'Smaller than or equals',
+    'BIGEQ': 'Bigger than or equals',
+    'NOTEQ': 'Not equals',
+  
+    // math_operator
+    'AND': 'AND: both the inputs are true',
+    'OR': 'OR: at least 1 input is true',
+    'EXOR': 'EXOR: exactly 1 input is true'
+  };
+
+Blockly.Extensions.register('gdl_math_op_tooltip',
+  Blockly.Extensions.buildTooltipForDropdown(
+      'OP', Blockly.GDL.Math.TOOLTIPS_BY_OP));
 
 /**
  * Javascript defeinitions
@@ -132,5 +218,45 @@ Blockly.GDL['gdl_math_operator'] = function (block) {
     var argB = Blockly.GDL._numValueToCode(block, 'B', order);
 
     var code = argA + Blockly.GDL.CODE_SPACE + op + Blockly.GDL.CODE_SPACE + argB;
+    return [code, order];
+};
+
+Blockly.GDL['gdl_math_abs'] = function (block) {
+    var order = Blockly.GDL.ORDER_ATOMIC;
+    var value_abs = Blockly.GDL._numValueToCode(block, 'A', Blockly.GDL.ORDER_NONE);
+
+    var code = 'abs(' + value_abs + ')';
+    return [code, order];
+};
+
+Blockly.GDL['gdl_math_sqr'] = function (block) {
+    var order = Blockly.GDL.ORDER_ATOMIC;
+    var value_sqr = Blockly.GDL._numValueToCode(block, 'A', Blockly.GDL.ORDER_NONE);
+
+    var code = 'sqr(' + value_sqr + ')';
+    return [code, order];
+};
+
+Blockly.GDL['gdl_math_sin'] = function (block) {
+    var order = Blockly.GDL.ORDER_ATOMIC;
+    var value_sin = Blockly.GDL._numValueToCode(block, 'A', Blockly.GDL.ORDER_NONE);
+
+    var code = 'sin(' + value_sin + ')';
+    return [code, order];
+};
+
+Blockly.GDL['gdl_math_cos'] = function (block) {
+    var order = Blockly.GDL.ORDER_ATOMIC;
+    var value_cos = Blockly.GDL._numValueToCode(block, 'A', Blockly.GDL.ORDER_NONE);
+
+    var code = 'cos(' + value_cos + ')';
+    return [code, order];
+};
+
+Blockly.GDL['gdl_math_tan'] = function (block) {
+    var order = Blockly.GDL.ORDER_ATOMIC;
+    var value_tan = Blockly.GDL._numValueToCode(block, 'A', Blockly.GDL.ORDER_NONE);
+
+    var code = 'tan(' + value_tan + ')';
     return [code, order];
 };
