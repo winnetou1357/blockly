@@ -186,7 +186,4 @@ Blockly.GDL['text_print'] = function (block) {
     return 'print ' + msg + Blockly.GDL.CODE_NEWLINE;
 };
 
-Blockly.GDL['text'] = function (block) {
-    var quotedText = Blockly.GDL.quote_(block.getFieldValue('TEXT'));
-    return [quotedText, Blockly.GDL.ORDER_ATOMIC];
-};
+
