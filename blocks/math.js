@@ -53,7 +53,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
       "value": 0
     }],
     "output": "Number",
-    "colour": "%{BKY_MATH_HUE}",
+    "colour": 190,
     "helpUrl": "%{BKY_MATH_NUMBER_HELPURL}",
     "tooltip": "%{BKY_MATH_NUMBER_TOOLTIP}",
     "extensions": ["parent_tooltip_when_inline"]
@@ -77,6 +77,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
           ["%{BKY_MATH_SUBTRACTION_SYMBOL}", "MINUS"],
           ["%{BKY_MATH_MULTIPLICATION_SYMBOL}", "MULTIPLY"],
           ["%{BKY_MATH_DIVISION_SYMBOL}", "DIVIDE"],
+          ["%", "MODULO"],
           ["%{BKY_MATH_POWER_SYMBOL}", "POWER"]
         ]
       },
@@ -88,7 +89,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     ],
     "inputsInline": true,
     "output": "Number",
-    "colour": "%{BKY_MATH_HUE}",
+    "colour": 190,
     "helpUrl": "%{BKY_MATH_ARITHMETIC_HELPURL}",
     "extensions": ["math_op_tooltip"]
   },
@@ -411,6 +412,7 @@ Blockly.Constants.Math.TOOLTIPS_BY_OP = {
   'MINUS': '%{BKY_MATH_ARITHMETIC_TOOLTIP_MINUS}',
   'MULTIPLY': '%{BKY_MATH_ARITHMETIC_TOOLTIP_MULTIPLY}',
   'DIVIDE': '%{BKY_MATH_ARITHMETIC_TOOLTIP_DIVIDE}',
+  'MODULO': 'Return the remainder of the quotiens',
   'POWER': '%{BKY_MATH_ARITHMETIC_TOOLTIP_POWER}',
 
   // math_simple
