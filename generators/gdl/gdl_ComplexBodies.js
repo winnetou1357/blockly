@@ -503,7 +503,7 @@ Blockly.GDL['gdl_3d_revolve'] = function (block) {
 
 Blockly.GDL['gdl_2d_coordinate'] = function (block) {
     var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
-    var value_y = Blockly.GDL._numValueToCode(block, 'y', Blockly.GDL.ORDER_COMMA);
+    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
     
     var code = value_x + Blockly.GDL.CODE_COMMA_SPACE +
                   value_y;
@@ -512,8 +512,8 @@ Blockly.GDL['gdl_2d_coordinate'] = function (block) {
 
 Blockly.GDL['gdl_2d_coordinate_status'] = function (block) {
     var value_x = Blockly.GDL._numValueToCode(block, 'X', Blockly.GDL.ORDER_COMMA);
-    var value_y = Blockly.GDL._numValueToCode(block, 'y', Blockly.GDL.ORDER_COMMA);
-    var value_s = Blockly.GDL._numValueToCode(block, 's', Blockly.GDL.ORDER_COMMA);
+    var value_y = Blockly.GDL._numValueToCode(block, 'Y', Blockly.GDL.ORDER_COMMA);
+    var value_s = Blockly.GDL._numValueToCode(block, 'S', Blockly.GDL.ORDER_COMMA);
     
     var code = value_x + Blockly.GDL.CODE_COMMA_SPACE +
                   value_y + Blockly.GDL.CODE_COMMA_SPACE +
