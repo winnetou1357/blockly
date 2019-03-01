@@ -25,7 +25,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }, {
                 "type": "input_value",
                 "name": "COORDS",
-                "check": "Array",
+                "check": "Array_xy",
                 "align": "RIGHT"
             }
         ],
@@ -47,7 +47,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }, {
                 "type": "input_value",
                 "name": "COORDS",
-                "check": "Array",
+                "check": "Array_xys",
                 "align": "RIGHT"
             }
         ],
@@ -95,7 +95,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }
         ],
         "inputsInline": true,
-        "output": "GDL2DCoordinate",
+        "output": "GDL2DCoordinateStatus",
         "colour": 60,
         "tooltip": "",
         "helpUrl": ""
@@ -147,7 +147,7 @@ Blockly.Blocks['gdl_xy_list'] = {
     this.setColour(60);
     this.itemCount_ = 3;
     this.updateShape_();
-    this.setOutput(true, 'Array');
+    this.setOutput(true, 'Array_xy');
     this.setMutator(new Blockly.Mutator(['gdl_lists_create_with_item']));
     this.setTooltip(Blockly.Msg['LISTS_CREATE_WITH_TOOLTIP']);
   },
@@ -248,8 +248,9 @@ Blockly.Blocks['gdl_xy_list'] = {
     for (var i = 0; i < this.itemCount_; i++) {
       if (!this.getInput('ADD' + i)) {
         var input = this.appendValueInput('ADD' + i);
+        input.setCheck('GDL2DCoordinate');
         if (i == 0) {
-          input.appendField('coordinates (x, y)');
+          input.appendField('x, y');
         }
       }
     }
@@ -272,7 +273,7 @@ Blockly.Blocks['gdl_xys_list'] = {
     this.setColour(60);
     this.itemCount_ = 3;
     this.updateShape_();
-    this.setOutput(true, 'Array');
+    this.setOutput(true, 'Array_xys');
     this.setMutator(new Blockly.Mutator(['gdl_lists_create_with_item']));
     this.setTooltip(Blockly.Msg['LISTS_CREATE_WITH_TOOLTIP']);
   },
@@ -373,8 +374,9 @@ Blockly.Blocks['gdl_xys_list'] = {
     for (var i = 0; i < this.itemCount_; i++) {
       if (!this.getInput('ADD' + i)) {
         var input = this.appendValueInput('ADD' + i);
+        input.setCheck('GDL2DCoordinateStatus');
         if (i == 0) {
-          input.appendField('coordinates (x, y, s)');
+          input.appendField('x, y, s');
         }
       }
     }
