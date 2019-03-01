@@ -49,6 +49,6 @@ Blockly.GDL['gdl_text'] = function (block) {
 
 Blockly.GDL['gdl_single_comment'] = function (block) {
     var text = block.getFieldValue('TEXT');
-    var comment = '! ' + text;
+    var comment = '! ' + text + Blockly.GDL.CODE_NEWLINE;
     return comment;
 };
