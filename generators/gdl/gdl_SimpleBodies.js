@@ -98,7 +98,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     }, {
         "type": "gdl_3d_cone",
         
-        "message0": "cone    height %1 bottom radius %2 top radius %3",
+        "message0": "cone        height %1 bottom radius %2 top radius %3",
         "args0": [
             {
                 "type": "input_value",

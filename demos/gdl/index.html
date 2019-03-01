@@ -26,6 +26,9 @@
       font-weight: normal;
       font-size: 140%;
     }
+    .commentStyle {
+      font-style: italic;
+    }
   </style>
 </head>
 
@@ -65,6 +68,7 @@
     <category name="Attributes" colour="325">
       <block type="gdl_pen"></block>
       <block type="gdl_material"></block>
+      <block type="gdl_resol"></block>
     </category>
 
     <!-- GDL control structures -->
@@ -94,15 +98,20 @@
     </category>
 
     <!-- GDL Complex 3D models -->
-    <category name="Complex bodies" colour="60">
-      <block type="gdl_xy_list"></block>
-      <block type="gdl_2d_coordinate"></block>
+    <category name="Complex Bodies" colour="60">
       <block type="gdl_3d_prism"></block>
+      <block type="gdl_3d_prism_"></block>
+      <block type="gdl_3d_revolve"></block>
+      <block type="gdl_xy_list"></block>
+      <block type="gdl_xys_list"></block>
+      <block type="gdl_2d_coordinate"></block>
+      <block type="gdl_2d_coordinate_status"></block>
     </category>
 
     <!-- GDL Texts and Comments-->
     <category name="Texts" colour="30">
-        <block type="gdl_text"></block>
+      <block type="gdl_text"></block>
+      <block type="gdl_single_comment"></block>
     </category>
   </xml>
 
