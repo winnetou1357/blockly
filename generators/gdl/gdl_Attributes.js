@@ -45,6 +45,22 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "colour": 325,
         "tooltip": "",
         "helpUrl": ""
+    }, {
+        "type": "gdl_resol",
+        
+        "message0": "resol %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "R",
+                "align": "RIGHT"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 325,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);
 
@@ -63,5 +79,12 @@ Blockly.GDL['gdl_material'] = function (block) {
     var value_m = Blockly.GDL._numValueToCode(block, 'M', Blockly.GDL.ORDER_COMMA);
 
     var command = 'material ' + value_m + Blockly.GDL.CODE_NEWLINE;
+    return command;
+};
+
+Blockly.GDL['gdl_resol'] = function (block) {
+    var value_r = Blockly.GDL._numValueToCode(block, 'R', Blockly.GDL.ORDER_COMMA);
+
+    var command = 'resol ' + value_r + Blockly.GDL.CODE_NEWLINE;
     return command;
 };
