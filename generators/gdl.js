@@ -41,11 +41,7 @@ Blockly.GDL = new Blockly.Generator('GDL');
  * accidentally clobbering a built-in object or function.
  * @private
  */
-Blockly.GDL.addReservedWords(
-    'IF,THEN,ELSE,FOR,TO,STEP,NEXT' +
-    'PRINT' +
-    'BLOCK'
-);
+
 
 /**
  * Order of operators
