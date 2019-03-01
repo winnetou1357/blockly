@@ -451,7 +451,8 @@ Blockly.GDL['gdl_3d_prism'] = function (block) {
     var command = 'prism' + Blockly.GDL.CODE_SPACE +
                   coordinate_count + Blockly.GDL.CODE_COMMA_SPACE +
                   value_h + Blockly.GDL.CODE_COMMA_SPACE +
-                  Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA);
+                  Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA) +
+                  Blockly.GDL.CODE_NEWLINE;
     
     return command;
 };
@@ -471,7 +472,8 @@ Blockly.GDL['gdl_3d_prism_'] = function (block) {
     var command = 'prism_' + Blockly.GDL.CODE_SPACE +
                   coordinate_count + Blockly.GDL.CODE_COMMA_SPACE +
                   value_h + Blockly.GDL.CODE_COMMA_SPACE +
-                  Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA);
+                  Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA) +
+                  Blockly.GDL.CODE_NEWLINE;
     
     return command;
 };
@@ -492,7 +494,8 @@ Blockly.GDL['gdl_3d_revolve'] = function (block) {
                   coordinate_count + Blockly.GDL.CODE_COMMA_SPACE +
                   value_a + Blockly.GDL.CODE_COMMA_SPACE +
                   value_m + Blockly.GDL.CODE_COMMA_SPACE +
-                  Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA);
+                  Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA) +
+                  Blockly.GDL.CODE_NEWLINE;
     
     return command;
 };
