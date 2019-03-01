@@ -15,16 +15,18 @@ goog.require('Blockly.GDL');
 Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     {
         "type": "gdl_3d_prism",
-        "message0": "prism height %1 base %2",
+        "message0": "prism       height %1 points (x, y) %2",
         "args0": [
             {
                 "type": "input_value",
                 "name": "H",
-                "check": "Number"
+                "check": "Number",
+                "align": "RIGHT"
             }, {
                 "type": "input_value",
                 "name": "COORDS",
-                "check": "Array"
+                "check": "Array",
+                "align": "RIGHT"
             }
         ],
         "inputsInline": false,
@@ -59,6 +61,37 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
  * Javascript defeinitions
  */
 
+Blockly.Blocks['gdl_lists_create_with_container'] = {
+    /**
+     * Mutator block for list container.
+     * @this Blockly.Block
+     */
+    init: function() {
+      this.setColour(60);
+      this.appendDummyInput()
+          .appendField(Blockly.Msg['LISTS_CREATE_WITH_CONTAINER_TITLE_ADD']);
+      this.appendStatementInput('STACK');
+      this.setTooltip(Blockly.Msg['LISTS_CREATE_WITH_CONTAINER_TOOLTIP']);
+      this.contextMenu = false;
+    }
+  };
+
+Blockly.Blocks['gdl_lists_create_with_item'] = {
+    /**
+     * Mutator block for adding items.
+     * @this Blockly.Block
+     */
+    init: function() {
+      this.setColour(60);
+      this.appendDummyInput()
+          .appendField(Blockly.Msg['LISTS_CREATE_WITH_ITEM_TITLE']);
+      this.setPreviousStatement(true);
+      this.setNextStatement(true);
+      this.setTooltip(Blockly.Msg['LISTS_CREATE_WITH_ITEM_TOOLTIP']);
+      this.contextMenu = false;
+    }
+  };
+
 Blockly.Blocks['gdl_xy_list'] = {
     /**
    * Block for creating a list with any number of elements of any type.
@@ -66,11 +99,11 @@ Blockly.Blocks['gdl_xy_list'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg['LISTS_CREATE_WITH_HELPURL']);
-    this.setColour(Blockly.Msg['LISTS_HUE']);
+    this.setColour(60);
     this.itemCount_ = 3;
     this.updateShape_();
     this.setOutput(true, 'Array');
-    this.setMutator(new Blockly.Mutator(['lists_create_with_item']));
+    this.setMutator(new Blockly.Mutator(['gdl_lists_create_with_item']));
     this.setTooltip(Blockly.Msg['LISTS_CREATE_WITH_TOOLTIP']);
   },
   /**
@@ -99,11 +132,11 @@ Blockly.Blocks['gdl_xy_list'] = {
    * @this Blockly.Block
    */
   decompose: function(workspace) {
-    var containerBlock = workspace.newBlock('lists_create_with_container');
+    var containerBlock = workspace.newBlock('gdl_lists_create_with_container');
     containerBlock.initSvg();
     var connection = containerBlock.getInput('STACK').connection;
     for (var i = 0; i < this.itemCount_; i++) {
-      var itemBlock = workspace.newBlock('lists_create_with_item');
+      var itemBlock = workspace.newBlock('gdl_lists_create_with_item');
       itemBlock.initSvg();
       connection.connect(itemBlock.previousConnection);
       connection = itemBlock.nextConnection;
@@ -171,7 +204,7 @@ Blockly.Blocks['gdl_xy_list'] = {
       if (!this.getInput('ADD' + i)) {
         var input = this.appendValueInput('ADD' + i);
         if (i == 0) {
-          input.appendField(Blockly.Msg['LISTS_CREATE_WITH_INPUT_WITH']);
+          input.appendField('coordinates (x, y)');
         }
       }
     }
