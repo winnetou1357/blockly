@@ -58,6 +58,33 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "tooltip": "",
         "helpUrl": ""
     }, {
+        "type": "gdl_3d_revolve",
+        "message0": "revolve       angle %1 mask %2 points (x, y, s) %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "A",
+                "check": "Number",
+                "align": "RIGHT"
+            }, {
+                "type": "input_value",
+                "name": "M",
+                "check": "Number",
+                "align": "RIGHT"
+            }, {
+                "type": "input_value",
+                "name": "COORDS",
+                "check": "Array_xys",
+                "align": "RIGHT"
+            }
+        ],
+        "inputsInline": false,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 60,
+        "tooltip": "",
+        "helpUrl": ""
+    }, {
         "type": "gdl_2d_coordinate",
         "message0": "x %1 y %2",
         "args0": [
@@ -444,6 +471,27 @@ Blockly.GDL['gdl_3d_prism_'] = function (block) {
     var command = 'prism_' + Blockly.GDL.CODE_SPACE +
                   coordinate_count + Blockly.GDL.CODE_COMMA_SPACE +
                   value_h + Blockly.GDL.CODE_COMMA_SPACE +
+                  Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA);
+    
+    return command;
+};
+
+Blockly.GDL['gdl_3d_revolve'] = function (block) {
+    var value_a = Blockly.GDL._numValueToCode(block, 'A', Blockly.GDL.ORDER_COMMA);
+    var value_m = Blockly.GDL._numValueToCode(block, 'M', Blockly.GDL.ORDER_COMMA);
+
+    //Third element in block input list, which is the coordinate list 
+    var coordinate_block_list = block.inputList[2].connection.targetBlock();
+    var coordinate_count = 0;
+
+    if (coordinate_block_list) {
+        coordinate_count = coordinate_block_list.itemCount_;
+    }
+
+    var command = 'revolve' + Blockly.GDL.CODE_SPACE +
+                  coordinate_count + Blockly.GDL.CODE_COMMA_SPACE +
+                  value_a + Blockly.GDL.CODE_COMMA_SPACE +
+                  value_m + Blockly.GDL.CODE_COMMA_SPACE +
                   Blockly.GDL.valueToCode (block, 'COORDS', Blockly.GDL.ORDER_COMMA);
     
     return command;
