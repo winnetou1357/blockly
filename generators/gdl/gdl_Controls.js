@@ -108,14 +108,9 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
                 "name": "DO0"
             }
         ],
-        "message2": "next %1",
-        "args2": [
-            {
-                "type": "field_label",
-                "name": "NEXT"
-            },
-        ],
-        //"extensions":["gdl_for_variable"], 
+        "message2": "next",
+        "args2": [],
+        // "mutator": "gdl_controls_for_mutator",
         "inputsInline": true,
         "previousStatement": null,
         "nextStatement": null,
@@ -125,6 +120,67 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
     }
 ]);
 
+
+// TODO failed to make this mutator work. Its purpose is to place the
+// loop variable name after the trailing 'next; keyword, but it caused.
+// 
+// /**
+//  * Mixin for mutator functions in the 'gdl_controls_for_mutator' extension.
+//  * @mixin
+//  * @augments Blockly.Block
+//  * @package
+//  */
+// Blockly.GDL.GDL_CONTROLS_FOR_MUTATOR_MIXIN = {
+//     /**
+//      * Create XML to represent the trailing 'loopVarName'.
+//      * @return {Element} XML storage element.
+//      * @this Blockly.Block
+//      */
+//     mutationToDom: function() {
+//       var container = document.createElement('mutation');
+//       var loopVarName = this.getField('VAR').getText ();
+//       container.setAttribute('loopVarName', loopVarName);
+//       return container;
+//     },
+//     /**
+//      * Parse XML to restore the 'divisorInput'.
+//      * @param {!Element} xmlElement XML storage element.
+//      * @this Blockly.Block
+//      */
+//     domToMutation: function(xmlElement) {
+//       var loopVarName = xmlElement.getAttribute('loopVarName');
+//       this.updateShape_(loopVarName);
+//     },
+//     /**
+//      * Modify this block to have 'loopVarName' at the end, following the 'next' keyword.
+//      * @param {boolean} loopVarName the variablename of the lop variable
+//      * @private
+//      * @this Blockly.Block
+//      */
+//     updateShape_: function(loopVarName) {
+//       // Add or remove a Value Input.
+//       var nextField = this.getField('FOR_NEXT');
+//       nextField.setText (loopVarName);
+//     }
+//   };
+  
+//   /**
+//    * 'gdl_controls_for_mutator' extension to the 'gdl_controls_for' block that
+//    * updates the variable name at the end of the for-loop ('next' statement).
+//    * @this Blockly.Block
+//    * @package
+//    */
+//   Blockly.GDL.GDL_CONTROLS_FOR_MUTATOR_EXTENSION = function () {
+//       var block = this;
+//       block.getField('VAR').setValidator(function (option) {
+//           var loopVarName = block.getText('VAR');
+//           this.sourceBlock_.updateShape_(loopVarName);
+//       });
+//   };
+  
+//   Blockly.Extensions.registerMutator('gdl_controls_for_mutator',
+//       Blockly.GDL.GDL_CONTROLS_FOR_MUTATOR_MIXIN,
+//       Blockly.GDL.GDL_CONTROLS_FOR_MUTATOR_EXTENSION);
 
 
 /**
