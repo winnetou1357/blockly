@@ -120,22 +120,92 @@
     </category>
   </xml>
 
-  <xml id="startBlocksMat" style="display: none">
-    <block type="gdl_material">
+  <xml id="startBlocks" style="display:none">
+    <variables>
+      <variable type="" id="Xoj/HzC)n(Ai.!01Ni.+">seat</variable>
+    </variables>
+    <block type="gdl_material" id="vmtGdU}c[S4;K!{26-p`" x="10" y="10">
       <value name="M">
-        <block type="math_number">
-            <field name="NUM">11</field>
+        <block type="math_number" id="3ajs[olcdLjLE{7%_ijY">
+          <field name="NUM">11</field>
         </block>
       </value>
-    </block>
-  </xml>
-  <xml id="startBlocksResol" style="display: none">
-    <block type="gdl_resol">
-      <value name="R">
-        <block type="math_number">
-            <field name="NUM">8</field>
+      <next>
+        <block type="gdl_resol" id="$)#+c8i=jml82%/,:Y#i">
+          <value name="R">
+            <block type="math_number" id="24j|[:+qYrn0+NW$((m=">
+              <field name="NUM">8</field>
+            </block>
+          </value>
+          <next>
+            <block type="gdl_controls_for" id="/p#Fw?,A/DMzN]j3I$M}">
+              <field name="VAR" id="Xoj/HzC)n(Ai.!01Ni.+" variabletype="">seat</field>
+              <value name="FROM">
+                <block type="math_number" id="d@9mySVg8APBQ8@c]y36">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="TO">
+                <block type="math_number" id="y0XA|gC*+.LP+b#p(rx{">
+                  <field name="NUM">12</field>
+                </block>
+              </value>
+              <statement name="DO0">
+                <block type="gdl_3d_rotz" id="@82QgV-hjJ{B+LIa[ls(">
+                  <value name="Z">
+                    <block type="math_arithmetic" id="$$eDSq!X`#C6F!Nr(oJU">
+                      <field name="OP">MULTIPLY</field>
+                      <value name="A">
+                        <block type="math_arithmetic" id="?c@XMn/1haM]1xoy33!Z">
+                          <field name="OP">DIVIDE</field>
+                          <value name="A">
+                            <block type="math_number" id="!$a!(Mg+xX3+R%@guD[F">
+                              <field name="NUM">360</field>
+                            </block>
+                          </value>
+                          <value name="B">
+                            <block type="math_number" id="HN!yB^b+2{B*9{l%j|E.">
+                              <field name="NUM">12</field>
+                            </block>
+                          </value>
+                        </block>
+                      </value>
+                      <value name="B">
+                        <block type="gdl_get_variable" id="`,VtQhdti8GhhsLA@KtX">
+                          <field name="VAR" id="Xoj/HzC)n(Ai.!01Ni.+" variabletype="">seat</field>
+                        </block>
+                      </value>
+                    </block>
+                  </value>
+                  <statement name="DO0">
+                    <block type="gdl_3d_addx" id="DlQ31kUf_7V4!84BkN9e">
+                      <value name="X">
+                        <block type="math_number" id="hx.lsoxC$%PP;/(^ycZD">
+                          <field name="NUM">2</field>
+                        </block>
+                      </value>
+                      <statement name="DO0">
+                        <block type="gdl_3d_cylind" id="DJVALIqLDqV.Zw0RSXg3">
+                          <value name="H">
+                            <block type="math_number" id="YCCh{#h*%0t5^93,C`^+">
+                              <field name="NUM">0.1</field>
+                            </block>
+                          </value>
+                          <value name="R">
+                            <block type="math_number" id="1_[j={7Wx==:1,vpz0iQ">
+                              <field name="NUM">0.3</field>
+                            </block>
+                          </value>
+                        </block>
+                      </statement>
+                    </block>
+                  </statement>
+                </block>
+              </statement>
+            </block>
+          </next>
         </block>
-      </value>
+      </next>
     </block>
   </xml>
 
@@ -145,8 +215,7 @@
         toolbox: document.getElementById('toolbox'),
         horizontalLayout: 'true' 
       });
-    Blockly.Xml.appendDomToWorkspace(document.getElementById('startBlocksMat'), demoWorkspace);
-    Blockly.Xml.appendDomToWorkspace(document.getElementById('startBlocksResol'), demoWorkspace);
+    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), demoWorkspace);
 
     function showCode() {
       // Generate JavaScript code and display it.
