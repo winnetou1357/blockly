@@ -116,42 +116,22 @@
     </category>
   </xml>
 
-  <xml>
-    <block type="gdl_pen" id="I],/Jx)N_CHO51jz)d[x" x="70" y="94">
-      <value name="P">
-        <block type="math_number" id="udd4RrHLz1JMhQn,YybJ">
-          <field name="NUM">1</field>
+  <xml id="startBlocksMat" style="display: none">
+    <block type="gdl_material">
+      <value name="M">
+        <block type="math_number">
+            <field name="NUM">11</field>
         </block>
       </value>
-      <next>
-        <block type="gdl_3d_cone" id="5)d9!x~c4)ANKDflC8%I" inline="false">
-          <value name="H">
-            <block type="math_arithmetic" id="pQkq3rCsB6x(I6I_9qTV">
-              <field name="OP">ADD</field>
-              <value name="A">
-                <block type="math_number" id="|$=ZpBBpUzj*eKn`~kCK">
-                  <field name="NUM">0</field>
-                </block>
-              </value>
-              <value name="B">
-                <block type="math_number" id=")k(HQvC=q{kzxV;b!4+|">
-                  <field name="NUM">1</field>
-                </block>
-              </value>
-            </block>
-          </value>
-          <value name="R_BOTTOM">
-            <block type="math_number" id="jry;F[XtMH;+o=r8Fq0Z">
-              <field name="NUM">2</field>
-            </block>
-          </value>
-          <value name="R_TOP">
-            <block type="math_number" id="nW:U5VRjcn-QH_P38`j|">
-              <field name="NUM">2</field>
-            </block>
-          </value>
+    </block>
+  </xml>
+  <xml id="startBlocksResol" style="display: none">
+    <block type="gdl_resol">
+      <value name="R">
+        <block type="math_number">
+            <field name="NUM">8</field>
         </block>
-      </next>
+      </value>
     </block>
   </xml>
 
@@ -161,7 +141,8 @@
         toolbox: document.getElementById('toolbox'),
         horizontalLayout: 'true' 
       });
-    Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), demoWorkspace);
+    Blockly.Xml.appendDomToWorkspace(document.getElementById('startBlocksMat'), demoWorkspace);
+    Blockly.Xml.appendDomToWorkspace(document.getElementById('startBlocksResol'), demoWorkspace);
 
     function showCode() {
       // Generate JavaScript code and display it.
