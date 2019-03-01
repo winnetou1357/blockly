@@ -115,30 +115,20 @@
     </category>
   </xml>
 
-  <xml id="startBlocks" style="display: none">
-    <block type="gdl_3d_cone" inline="false">
-      <value name="H">
-        <block type="math_arithmetic">
-          <value name="A">
-            <block type="math_number">
-              <field name="NUM">0</field>
-            </block>
-          </value>
-          <value name="B">
-            <block type="math_number">
-              <field name="NUM">1</field>
-            </block>
-          </value>
+  <xml id="startBlocksMat" style="display: none">
+    <block type="gdl_material">
+      <value name="M">
+        <block type="math_number">
+            <field name="NUM">11</field>
         </block>
       </value>
-      <value name="R_BOTTOM">
+    </block>
+  </xml>
+  <xml id="startBlocksResol" style="display: none">
+    <block type="gdl_resol">
+      <value name="R">
         <block type="math_number">
-          <field name="NUM">2</field>
-        </block>
-      </value>
-      <value name="R_TOP">
-        <block type="math_number">
-          <field name="NUM">2</field>
+            <field name="NUM">8</field>
         </block>
       </value>
     </block>
