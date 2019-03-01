@@ -40,6 +40,10 @@
   </p>
 
   <div id="blocklyDiv" style="height: 480px; width: 980px;"></div>
+  <form>
+    <input id="xmlInput" type="text" style="height: 480px; width: 980px;">
+    </input>
+  </form>
 
   <xml id="toolbox" style="display: none">
 
@@ -153,7 +157,7 @@
 
     function showXML() {
       var xml = Blockly.Xml.workspaceToDom (demoWorkspace);
-      alert(xml.outerHTML);
+      document.getElementById ('xmlInput').value = xml.outerHTML;
     }
 
     function runCode() {
@@ -170,7 +174,6 @@
       }
     }
   </script>
-
 </body>
 
 </html>
