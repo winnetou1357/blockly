@@ -29,7 +29,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         ],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 0,
+        "colour": "#eb4d4b",
         "tooltip": "",
         "helpUrl": ""
     },
@@ -45,7 +45,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         }    // End of the field variable dropdown
         ],
         "output": null,    // Null means the return value can be of any type
-        "colour": 0
+        "colour": "#eb4d4b"
     }
 ]);
 

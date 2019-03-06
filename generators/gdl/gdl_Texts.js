@@ -22,7 +22,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
           "text": ""
         }],
         "output": "String",
-        "colour": 30,
+        "colour": "#95afc0",
     },{
         "type": "gdl_single_comment",
         "message0": "!%1",
@@ -34,7 +34,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         }],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 30,
+        "colour": "#95afc0",
     }
 ]);
 

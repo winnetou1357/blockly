@@ -26,7 +26,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         ],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 325,
+        "colour": "#f0932b",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -42,7 +42,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         ],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 325,
+        "colour": "#f0932b",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -58,7 +58,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         ],
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 325,
+        "colour": "#f0932b",
         "tooltip": "",
         "helpUrl": ""
     }
