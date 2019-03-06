@@ -43,7 +43,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "extensions":["gdl_math_op_tooltip"], 
         "inputsInline": true,
         "output": "Number",
-        "colour": "#e056fd",
+        "colour": "#686de0",
     },{
         "type": "gdl_math_operator",
         "message0": "%1 %2 %3",
@@ -71,7 +71,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "extensions":["gdl_math_op_tooltip"], 
         "inputsInline": true,
         "output": "Number",
-        "colour": "#e056fd",
+        "colour": "#686de0",
     }, {
         "type": "gdl_math_abs",
         "message0": "abs(%1)",
@@ -82,7 +82,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }
         ],
         "output": "Number",
-        "colour": "#e056fd",
+        "colour": "#686de0",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -95,7 +95,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }
         ],
         "output": "Number",
-        "colour": "#e056fd",
+        "colour": "#686de0",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -108,7 +108,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }
         ],
         "output": "Number",
-        "colour": "#e056fd",
+        "colour": "#686de0",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -121,7 +121,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }
         ],
         "output": "Number",
-        "colour": "#e056fd",
+        "colour": "#686de0",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -134,7 +134,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
             }
         ],
         "output": "Number",
-        "colour": "#e056fd",
+        "colour": "#686de0",
         "tooltip": "",
         "helpUrl": ""
     }
