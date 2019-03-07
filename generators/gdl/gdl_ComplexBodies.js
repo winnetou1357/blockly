@@ -32,7 +32,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": false,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": "#6ab04c",
+        "colour": "#22a6b3",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -54,7 +54,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": false,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": "#6ab04c",
+        "colour": "#22a6b3",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -81,7 +81,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         "inputsInline": false,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": "#6ab04c",
+        "colour": "#22a6b3",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -100,7 +100,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         ],
         "inputsInline": true,
         "output": "GDL2DCoordinate",
-        "colour": "#6ab04c",
+        "colour": "#22a6b3",
         "tooltip": "",
         "helpUrl": ""
     }, {
@@ -123,7 +123,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
         ],
         "inputsInline": true,
         "output": "GDL2DCoordinateStatus",
-        "colour": "#6ab04c",
+        "colour": "#22a6b3",
         "tooltip": "",
         "helpUrl": ""
     }
@@ -139,7 +139,7 @@ Blockly.Blocks['gdl_lists_create_with_container'] = {
      * @this Blockly.Block
      */
     init: function() {
-      this.setColour("#6ab04c");
+      this.setColour("#22a6b3");
       this.appendDummyInput()
           .appendField(Blockly.Msg['LISTS_CREATE_WITH_CONTAINER_TITLE_ADD']);
       this.appendStatementInput('STACK');
@@ -154,7 +154,7 @@ Blockly.Blocks['gdl_lists_create_with_item'] = {
      * @this Blockly.Block
      */
     init: function() {
-      this.setColour("#6ab04c");
+      this.setColour("#22a6b3");
       this.appendDummyInput()
           .appendField(Blockly.Msg['LISTS_CREATE_WITH_ITEM_TITLE']);
       this.setPreviousStatement(true);
@@ -171,7 +171,7 @@ Blockly.Blocks['gdl_xy_list'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg['LISTS_CREATE_WITH_HELPURL']);
-    this.setColour("#6ab04c");
+    this.setColour("#22a6b3");
     this.itemCount_ = 3;
     this.updateShape_();
     this.setOutput(true, 'Array_xy');
@@ -297,7 +297,7 @@ Blockly.Blocks['gdl_xys_list'] = {
    */
   init: function() {
     this.setHelpUrl(Blockly.Msg['LISTS_CREATE_WITH_HELPURL']);
-    this.setColour("#6ab04c");
+    this.setColour("#22a6b3");
     this.itemCount_ = 3;
     this.updateShape_();
     this.setOutput(true, 'Array_xys');
