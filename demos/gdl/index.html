@@ -40,7 +40,7 @@
 
   <div id="blocklyDiv" style="height: 480px; width: 980px;"></div>
   <form>
-    <textarea id="xmlInput" name="xmlInput" cols="40" rows="10">
+    <textarea id="textOutArea" cols="40" rows="10">
     </textarea>
   </form>
 
@@ -305,12 +305,12 @@
       // Generate JavaScript code and display it.
       Blockly.GDL.INFINITE_LOOP_TRAP = null;
       var code = Blockly.GDL.workspaceToCode(demoWorkspace);
-      document.getElementById ('xmlInput').value = code;
+      document.getElementById ('textOutArea').value = code;
     }
 
     function showXML() {
       var xml = Blockly.Xml.workspaceToDom (demoWorkspace);
-      document.getElementById ('xmlInput').value = xml.outerHTML;
+      document.getElementById ('textOutArea').value = xml.outerHTML;
     }
   </script>
 </body>
