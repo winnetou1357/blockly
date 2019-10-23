@@ -305,7 +305,7 @@
       // Generate JavaScript code and display it.
       Blockly.GDL.INFINITE_LOOP_TRAP = null;
       var code = Blockly.GDL.workspaceToCode(demoWorkspace);
-      alert(code);
+      document.getElementById ('xmlInput').value = xml.outerHTML;
     }
 
     function showXML() {
