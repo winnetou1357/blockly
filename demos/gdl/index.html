@@ -36,7 +36,6 @@
   <p>
     <button onclick="showCode()">Show GDL</button>
     <button onclick="showXML()">Show XML</button>
-    <button onclick="runCode()">Run GDL</button>
   </p>
 
   <div id="blocklyDiv" style="height: 480px; width: 980px;"></div>
@@ -312,20 +311,6 @@
     function showXML() {
       var xml = Blockly.Xml.workspaceToDom (demoWorkspace);
       document.getElementById ('xmlInput').value = xml.outerHTML;
-    }
-
-    function runCode() {
-      // Generate JavaScript code and run it.
-      window.LoopTrap = 1000;
-      Blockly.GDL.INFINITE_LOOP_TRAP =
-        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-      var code = Blockly.GDL.workspaceToCode(demoWorkspace);
-      Blockly.GDL.INFINITE_LOOP_TRAP = null;
-      try {
-        eval(code);
-      } catch (e) {
-        alert(e);
-      }
     }
   </script>
 </body>
