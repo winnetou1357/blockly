@@ -56,7 +56,7 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
 
 Blockly.GDL['gdl_set_variable'] = function (block) {
     var actVarName = Blockly.GDL.variableDB_.getName(block.getFieldValue('VAR'), Blockly.Variables.NAME_TYPE);
-    var actVarVal = Blockly.GDL.valueToCode(block, 'VALUE', Blockly.GDL.ORDER_ATOMIC) || '0'
+    var actVarVal = Blockly.GDL._numValueToCode(block, 'VALUE', Blockly.GDL.ORDER_ATOMIC)
     var code = actVarName + " = " + actVarVal + Blockly.GDL.CODE_NEWLINE;
 
     return code;
